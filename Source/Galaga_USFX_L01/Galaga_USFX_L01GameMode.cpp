@@ -48,6 +48,24 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 			TANavesEnemigas.Push(NaveEnemigaTransporteTemporal);
 		}
 
+		const int32 NumeroDeColumnasCaza = 2;
+		const int32 NumeroDeFilasCaza = 5;
+
+		for (int32 Columna = 0; Columna < NumeroDeColumnasCaza; ++Columna)
+		{
+			TArray<ANaveEnemigaCaza*> NavesEnColumna;
+			for (int32 Fila = 0; Fila < NumeroDeFilasCaza; ++Fila)
+			{
+				FVector SpawningLocation = FVector(Columna * 300 + 300.0f, Fila * 200 + -500.0f, 250.0f);
+				FRotator SpawningRotation = FRotator::ZeroRotator;
+
+				ANaveEnemigaCaza* NuevaNaveCaza = GetWorld()->SpawnActor<ANaveEnemigaCaza>(SpawningLocation, SpawningRotation);
+				NavesEnColumna.Add(NuevaNaveCaza);
+				
+			}
+			ColumnaNavesEnemigasCaza.Add(Columna, NavesEnColumna);
+		}
+
 		//NaveEnemigaTransporte01 = World->SpawnActor<ANaveEnemigaTransporte>(ubicacionNave01, rotacionNave);
 		//NaveEnemigaCaza01 = World->SpawnActor<ANaveEnemigaCaza>(ubicacionNave02, rotacionNave);
 

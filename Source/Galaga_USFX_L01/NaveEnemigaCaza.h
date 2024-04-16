@@ -48,8 +48,7 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* FireSound;
 
-	float TiempoEntreProyectil;
-	float TiempoUltimoProyectil;
-	float VelocidadProyectil;
+	
+	float VelocidadProyectil = 1000.0f;;
 	float Speed;
 };

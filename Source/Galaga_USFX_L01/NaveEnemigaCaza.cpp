@@ -10,7 +10,7 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 	//mallaNaveEnemiga = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 
-	GunOffsetEnemy = FVector(10.f, 0.f, 0.f);
+	//GunOffsetEnemy = FVector(10.f, 0.f, 0.f);
 	//FireRateEnemy = 0.1f;
 	bCanFireEnemy = true;
 
@@ -86,14 +86,14 @@ void ANaveEnemigaCaza::BeginPlay()
 {
 	Super::BeginPlay();
 	TimerHandleEnemy = FTimerHandle();
-	GetWorld()->GetTimerManager().SetTimer(TimerHandleEnemy, this, &ANaveEnemigaCaza::Disparar, 3.0f, true);
+	GetWorld()->GetTimerManager().SetTimer(TimerHandleEnemy, this, &ANaveEnemigaCaza::Disparar, 0.2f, true);
 }
 
 void ANaveEnemigaCaza::Disparar()
 {
 	if (bCanFireEnemy)
 	{
-		FVector SpawnLocation = GetActorLocation() + GetActorForwardVector() * -100 + GunOffsetEnemy;
+		FVector SpawnLocation = GetActorLocation() + GetActorForwardVector() * -100 + FVector(-15.0f, 0.0f, 0.0f);
 
 		UWorld* const World = GetWorld();
 		if (World)

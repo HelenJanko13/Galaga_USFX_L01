@@ -18,7 +18,7 @@ class GALAGA_USFX_L01_API ANaveEnemigaTransporte : public ANaveEnemiga
 private:
 	float capacidadCargaPeso;
 	float capacidadCargaVolumen;
-	float velocidadProyectil;
+	
 
 
 public:
@@ -30,9 +30,12 @@ public:
 
 protected:
 	virtual void Mover(float DeltaTime);
-	virtual void Disparar();
+	virtual void Disparar() ;
+	float VelocidadProyectil;
+	FTimerHandle TimeHandle;
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	virtual void BeginPlay() override;
 
 };

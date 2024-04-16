@@ -4,4 +4,6 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UOb
 C:\Users\HELEN\Downloads\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01/NaveEnemigaTransporte.h
 C:\Users\HELEN\Downloads\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\NaveEnemiga.h
 C:\Users\HELEN\Downloads\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemiga.generated.h
+C:\Users\HELEN\Downloads\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Source\Galaga_USFX_L01\Galaga_USFX_L01Projectile.h
+C:\Users\HELEN\Downloads\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\Galaga_USFX_L01Projectile.generated.h
 C:\Users\HELEN\Downloads\Galaga_USFX_L01-master\Galaga_USFX_L01-master\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX_L01\NaveEnemigaTransporte.generated.h
