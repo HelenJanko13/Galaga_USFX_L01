@@ -29,7 +29,7 @@ public:
 protected:
 
 	virtual void Tick(float DeltaTime);
-	virtual void Mover() override;
+	virtual void Mover(float DeltaTime) override;
 	virtual void Disparar() override;
 	void BeginPlay() override;
 };

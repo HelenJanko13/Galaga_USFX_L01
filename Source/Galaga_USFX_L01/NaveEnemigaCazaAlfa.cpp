@@ -5,14 +5,32 @@
 
 ANaveEnemigaCazaAlfa::ANaveEnemigaCazaAlfa()
 {
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
+
+	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 }
 
 void ANaveEnemigaCazaAlfa::Tick(float DeltaTime)
 {
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }
 
-void ANaveEnemigaCazaAlfa::Mover()
+void ANaveEnemigaCazaAlfa::Mover(float DeltaTime)
 {
+
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+	SetActorLocation(NuevaPosicion);
+
+
+	if (NuevaPosicion.X < limiteX)
+	{
+
+		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
+
+	}
 }
 
 void ANaveEnemigaCazaAlfa::Disparar()
@@ -28,18 +46,19 @@ void ANaveEnemigaCazaAlfa::Disparar()
 	{
 		VelocidadProyectil = 1000.0f;
 		// Modificar dirección y velocidad del proyectil según sea necesario
-		FVector SpawnDirection = FVector(-0.50f, 0.0f, 0.0f);
+		float RandomAngle = FMath::RandRange(0.0f, 360.0f);
+		FVector SpawnDirection = FVector(FMath::Cos(RandomAngle), FMath::Sin(RandomAngle), 0.0f);
 		NewProjectile->SetProjectileVelocity(SpawnDirection * VelocidadProyectil);
 
 		// Modificar otras propiedades del proyectil según sea necesario
-		NewProjectile->SetProjectileScale(FVector(1.0f, 3.0f, 2.0f)); // Ejemplo: escalar el proyectil
+		NewProjectile->SetProjectileScale(FVector(1.0f, 3.0f, 2.0f)); 
 	}
 }
 
 void ANaveEnemigaCazaAlfa::BeginPlay()
 {
 	Super::BeginPlay();
-	TimeHandle = FTimerHandle();
-	GetWorldTimerManager().SetTimer(TimeHandle, this, &ANaveEnemigaCazaAlfa::Disparar, 0.3f, true);
+	TimerHandleEnemy = FTimerHandle();
+	GetWorldTimerManager().SetTimer(TimerHandleEnemy, this, &ANaveEnemigaCazaAlfa::Disparar, 0.3f, true);
 }
 

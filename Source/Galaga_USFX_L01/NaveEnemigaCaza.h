@@ -39,7 +39,7 @@ protected:
 	FTimerHandle TimerHandleEnemy;
 	
 	/* Flag to control firing  */
-	uint32 bCanFireEnemy : 1;
+	uint32 bCanFireEnemy ;
 
 public:
 	// Called every frame

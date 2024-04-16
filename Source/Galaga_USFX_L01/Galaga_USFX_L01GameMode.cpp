@@ -5,6 +5,7 @@
 #include "NaveEnemiga.h"
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaCaza.h"
+#include "NaveEnemigaCazaAlfa.h"
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
@@ -21,6 +22,7 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	//Set the game state to playing
 	FVector ubicacionInicioNavesEnemigasCaza = FVector(-300.0f, 500.0f, 250.0f);
 	FVector ubicacionInicioNavesEnemigasTransporte = FVector(500.0f, 500.0f, 250.0f);
+	FVector ubicacionInicioNavesEnemigasCazaAlfa = FVector(-600.0f, 500.0f, 250.0f);
 
 	//FVector ubicacionNave01 = FVector(-1000.0f, 500.0f, 250.0f);
 	//FVector ubicacionNave02 = FVector(-500.0f, -500.0f, 250.0f);
@@ -41,11 +43,20 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 		float nuevaposicionX = ubicacionInicioNavesEnemigasTransporte.X - 300.0f;
 
 		for (int j = 0; j < 5; j++) {
-			FVector PosicionNaveActual = FVector(nuevaposicionX, ubicacionInicioNavesEnemigasTransporte.Y + j * 300, ubicacionInicioNavesEnemigasTransporte.Z);
+			FVector PosicionNaveActual = FVector(nuevaposicionX, ubicacionInicioNavesEnemigasCazaAlfa.Y + j * 300, ubicacionInicioNavesEnemigasCazaAlfa.Z);
 			ANaveEnemigaTransporte* NaveEnemigaTransporteTemporal = World->SpawnActor<ANaveEnemigaTransporte>(PosicionNaveActual, rotacionNave);
 
 			//TANavesEnemigasTransporte.Push(NaveEnemigaTransporteTemporal);
 			TANavesEnemigas.Push(NaveEnemigaTransporteTemporal);
+		}
+
+		float nuevaposicionX2 = ubicacionInicioNavesEnemigasTransporte.X - 600.0f;
+		for (int x = 0; x < 5; x++) {
+			FVector PosicionNaveActual = FVector(nuevaposicionX2, ubicacionInicioNavesEnemigasTransporte.Y + x * 300, ubicacionInicioNavesEnemigasTransporte.Z);
+			ANaveEnemigaCazaAlfa* NaveEnemigaCazaAlfaTemporal = World->SpawnActor<ANaveEnemigaCazaAlfa>(PosicionNaveActual, rotacionNave);
+
+			//TANavesEnemigasCaza.Push(NaveEnemigaCazaTemporal);
+			TANavesEnemigas.Push(NaveEnemigaCazaAlfaTemporal);
 		}
 
 		const int32 NumeroDeColumnasCaza = 2;

@@ -82,12 +82,7 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 
 
 
-void ANaveEnemigaCaza::BeginPlay()
-{
-	Super::BeginPlay();
-	TimerHandleEnemy = FTimerHandle();
-	GetWorld()->GetTimerManager().SetTimer(TimerHandleEnemy, this, &ANaveEnemigaCaza::Disparar, 0.2f, true);
-}
+
 
 void ANaveEnemigaCaza::Disparar()
 {
@@ -116,6 +111,13 @@ void ANaveEnemigaCaza::Disparar()
 
 		bCanFireEnemy = false;
 	}
+}
+
+void ANaveEnemigaCaza::BeginPlay()
+{
+	Super::BeginPlay();
+	TimerHandleEnemy = FTimerHandle();
+	GetWorld()->GetTimerManager().SetTimer(TimerHandleEnemy, this, &ANaveEnemigaCaza::Disparar, 0.2f, true);
 }
 
 void ANaveEnemigaCaza::ShotTimerExpiredEnemy()
