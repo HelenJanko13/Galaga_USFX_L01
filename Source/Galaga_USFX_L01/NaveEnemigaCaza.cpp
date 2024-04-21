@@ -22,63 +22,10 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 
 void ANaveEnemigaCaza::Tick(float DeltaTime)
 {
-    Super::Tick(DeltaTime);
-    Mover(DeltaTime);
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 
-   // FVector PosicionActual = GetActorLocation();
-   // FVector Desplazamiento = FVector(-1*Speed * DeltaTime,0.f,0.f);
-
-    //FVector NuevaPosicion = FVector(PosicionActual.X + DesplazamientoX * -1, PosicionActual.Y, PosicionActual.Z);
-    //SetActorLocation(PosicionActual + Desplazamiento);
-
-   /* TiempoUltimoProyectil += DeltaTime;
-
-    // Verificar si ha pasado el tiempo suficiente desde el último disparo
-    if (TiempoUltimoProyectil >= TiempoEntreProyectil)
-    {
-		// Generar una dirección de disparo predefinida (por ejemplo, hacia adelante)
-		//const FVector FireDirectionEnemy = GetActorForwardVector();
-
-		// Intentar disparar un proyectil en la dirección predefinida
-		Disparar();
-
-        // Reiniciar el tiempo
-        TiempoUltimoProyectil = 0.0f;
-    }*/
 }
-  
-
-/*void ANaveEnemigaCaza::Disparar(FVector FireDirectionEnemy)
-{    
-	if (bCanFireEnemy) {
-		 //FRotator FireRotationEnemy = FireDirectionEnemy.Rotation();
-		 FVector SpawnLocation = GetActorLocation() + GetActorForwardVector()*-100 + GunOffsetEnemy;
-
-
-		UWorld* const World = GetWorld();
-		if (World )
-		{
-			// Spawn the projectile
-			AGalaga_USFX_L01Projectile* NewProjectile = World->SpawnActor<AGalaga_USFX_L01Projectile>(AGalaga_USFX_L01Projectile::StaticClass(), SpawnLocation, FRotator::ZeroRotator);
-
-			// Set the timer for shot expiration
-			//World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpiredEnemy, this, &ANaveEnemigaCaza::ShotTimerExpiredEnemy, FireRateEnemy);
-			if (NewProjectile)
-			{
-				// Modificar dirección y velocidad según sea necesario
-				FVector SpawnDirection = FVector(-1.0f, 0.f, 0.f); // Ejemplo: disparar hacia abajo
-				NewProjectile->SetProjectileVelocity(SpawnDirection * VelocidadProyectil);
-				// Ajustar velocidad del proyectil
-			}
-			// Play the fire sound
-			if (FireSound != nullptr)
-			{
-				UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-			}
-		}
-		bCanFireEnemy = false;
-	}
-}*/
 
 
 
